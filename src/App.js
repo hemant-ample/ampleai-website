@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
+import {Typography} from '@mui/material'
+import CssBaseline from '@mui/material/CssBaseline';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Navbar from './components/Navbar/Navbar';
+const theme = createTheme({
+  typography: {
+    fontFamily: ['"Spartan"', 'Sans-serif'].join(','),
+    fontStyle: 'normal',
+    button: {
+      textTransform: "none"
+    }
+  }
+});
+const App = () => {
 
-function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Navbar/>
+    </ThemeProvider>
+  )
 }
 
-export default App;
+export default App
+
